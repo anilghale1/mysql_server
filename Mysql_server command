@@ -1,0 +1,49 @@
+use bit3rdsem
+
+
+CREATE TABLE student (
+    id int not null primary key identity(1,1),
+    fname nvarchar(45) not null,
+    lname nvarchar(45) not null,
+	address nvarchar(25) not null,
+	contact nvarchar(25) not null
+    
+);
+
+SELECT *FROM student; 
+
+Alter table student add college nvarchar (255) NULL
+
+INSERT INTO student (fname, lname, address, contact, college) VALUES ('Anil', 'Ghale', 'Rasuwa', '345100' , 'KIST'),
+('Punik', 'Gurung', 'Rautahat', '100' , 'NAME'),
+('ufos', 'Rana', 'Rasuwa', '982323' , 'putalibazar'),
+ ('atirahasye', 'lamb', 'nuwakot', '39304' , 'baulabazar'); 
+
+ UPDATE student SET fname='Mansan',lname='Silwal' WHERE id=2; 
+
+ SELECT *FROM student where id>3; 
+ SELECT *FROM student where fname = 'Anil';
+
+ DELETE FROM student WHERE id=3; 
+
+
+ CREATE TABLE teacher (
+    id int not null primary key identity(1,1),
+    fname nvarchar(45) not null,
+    lname nvarchar(45) not null,
+	address nvarchar(25) not null,
+	contact nvarchar(25) not null
+    
+);
+
+select *from teacher;
+INSERT INTO teacher (fname, lname, address, contact) VALUES ('Swornim', 'Thapa', 'Thapa Gaun', '345100'),
+('Punika', 'Gurung', 'Rautahat', '100'),
+('mannu', 'Rana', 'Rasuwa', '982323' ),
+ ('pk_vai', 'lamb', 'nuwakot', '39304' ); 
+
+--command to join table
+ SELECT *
+FROM student
+INNER JOIN teacher
+ON student.id = teacher.id;
